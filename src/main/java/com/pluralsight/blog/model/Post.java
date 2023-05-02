@@ -5,13 +5,23 @@ import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
-
+// using @entity annotation to create object model
+@Entity
 public class Post {
+	
+	// primary key
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String title;
     private String lead;
+    
+    @Lob
+    @Column(length = 1000000)
     private String body;
     private String author;
+    
+    @Temporal(TemporalType.DATE)
     private Date date;
 
     public Post() {
