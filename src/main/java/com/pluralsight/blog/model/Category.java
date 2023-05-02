@@ -4,21 +4,35 @@ import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
 
-
+@Entity
 public class Category {
 
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String name;
+    
+    @OneToMany
+    private List<Post> posts;
 
     public Category() {
         super();
+        posts = new ArrayList<Post>();
     }
 
     public Long getId() {
         return id;
     }
 
-    public String getName() {
+    public void setId(Long id) {
+		this.id = id;
+	}
+
+	public void setPosts(List<Post> posts) {
+		this.posts = posts;
+	}
+
+	public String getName() {
         return name;
     }
 
@@ -31,6 +45,6 @@ public class Category {
     }
 
     public void addPost(Post post) {
-        return;
+        posts.add(post);
     }
 }
