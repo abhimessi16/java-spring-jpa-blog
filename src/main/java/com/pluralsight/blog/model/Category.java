@@ -17,7 +17,7 @@ public class Category {
 
     public Category() {
         super();
-        posts = new ArrayList<Post>();
+        posts = new ArrayList<>();
     }
 
     public Long getId() {
@@ -41,7 +41,7 @@ public class Category {
     }
 
     public List<Post> getPosts() {
-        return null;
+        return posts;
     }
 
     public void addPost(Post post) {
